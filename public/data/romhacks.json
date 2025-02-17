@@ -2,7 +2,12 @@
   {
     "id": "pokemon_unbound",
     "name": "Pokémon Unbound",
-    "image": "/images/pokemon_unbound.jpg",
+    "image": "https://cdn.thegamesdb.net/images/original/fanart/82656-1.jpg",
+    "gallery": [
+      "https://i.imgur.com/IILcQLr.png",
+      "https://i.imgur.com/yxnDnr4.png",
+      "https://i.imgur.com/JcHbIKH.png"
+    ],
     "console": "GBA",
     "base_game": "FireRed",
     "language": "English",
@@ -10,7 +15,9 @@
     "difficulty": "Hard",
     "summary": "Pokémon Unbound is a feature-packed ROM hack with a deep story, mega evolutions, and new mechanics.",
     "features": ["Mega Evolutions", "Fairy Type", "Physical/Special Split", "Expanded Story"],
-    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "downloads": {
+      "google_drive": "https://drive.google.com/..."
+    },
     "socials": {
       "discord": "https://discord.gg/unbound",
       "twitter": "https://twitter.com/pokemon_unbound",
