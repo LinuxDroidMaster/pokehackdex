@@ -1,0 +1,154 @@
+[
+  {
+    "id": "pokemon_unbound",
+    "name": "Pokémon Unbound",
+    "image": "/images/pokemon_unbound.jpg",
+    "console": "GBA",
+    "base_game": "FireRed",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Hard",
+    "summary": "Pokémon Unbound is a feature-packed ROM hack with a deep story, mega evolutions, and new mechanics.",
+    "features": ["Mega Evolutions", "Fairy Type", "Physical/Special Split", "Expanded Story"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "discord": "https://discord.gg/unbound",
+      "twitter": "https://twitter.com/pokemon_unbound",
+      "website": "https://pokemonunbound.com",
+      "youtube": "https://youtube.com/pokemonunbound"
+    }
+  },
+  {
+    "id": "pokemon_gaia",
+    "name": "Pokémon Gaia",
+    "image": "/images/pokemon_gaia.webp",
+    "console": "GBA",
+    "base_game": "FireRed",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Medium",
+    "summary": "Pokémon Gaia brings an exciting new region, fresh mechanics, and a refined difficulty curve.",
+    "features": ["New Region", "Physical/Special Split", "Modern Abilities", "Updated Sprites"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "discord": "https://discord.gg/gaia",
+      "twitter": "https://twitter.com/pokemon_gaia"
+    }
+  },
+  {
+    "id": "pokemon_team_rocket_edition",
+    "name": "Pokémon Team Rocket Edition",
+    "image": "/images/pokemon_team_rocket.jpg",
+    "console": "GBC",
+    "base_game": "Red",
+    "language": "Spanish",
+    "status": "In Development",
+    "difficulty": "Medium",
+    "summary": "Pokémon Team Rocket Edition lets you experience the world of Pokémon from the perspective of a Team Rocket member.",
+    "features": ["Play as Team Rocket", "New Storyline", "Steal Pokémon", "Moral Choices"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "website": "https://teamrocket.com",
+      "youtube": "https://youtube.com/teamrocket"
+    }
+  },
+  {
+    "id": "pokemon_lunar_dark",
+    "name": "Pokémon Lunar Dark",
+    "image": "/images/pokemon_lunar_dark.jpeg",
+    "console": "RPG Maker",
+    "base_game": "Custom",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Medium",
+    "summary": "A fan-made Pokémon game with over 250 new Pokémon and a completely original region.",
+    "features": ["New Region", "Fakemon", "New Story"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "twitter": "https://twitter.com/lunardark",
+      "website": "https://lunardark.com"
+    }
+  },
+  {
+    "id": "pokemon_glazed",
+    "name": "Pokémon Glazed",
+    "image": "/images/pokemon_glazed.webp",
+    "console": "GBA",
+    "base_game": "Emerald",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Hard",
+    "summary": "One of the most beloved ROM hacks, featuring three regions and an expansive post-game.",
+    "features": ["Three Regions", "New Story", "Legendary Pokémon"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "discord": "https://discord.gg/glazed",
+      "website": "https://pokemonglazed.com"
+    }
+  },
+  {
+    "id": "pokemon_light_platinum",
+    "name": "Pokémon Light Platinum",
+    "image": "/images/pokemon_light_platinum.webp",
+    "console": "GBA",
+    "base_game": "Ruby",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Medium",
+    "summary": "A highly popular ROM hack that introduces the Zhery and Lauren regions with a new storyline.",
+    "features": ["New Regions", "New Gym Leaders", "Battle Frontier"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "twitter": "https://twitter.com/lightplatinum",
+      "website": "https://lightplatinum.com"
+    }
+  },
+  {
+    "id": "pokemon_sweet",
+    "name": "Pokémon Sweet",
+    "image": "/images/pokemon_sweet.jpg",
+    "console": "GBA",
+    "base_game": "FireRed",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Easy",
+    "summary": "A fun, dessert-themed Pokémon ROM hack where all Pokémon are candy-based!",
+    "features": ["Candy Pokémon", "New Type Chart", "Fun Story"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "website": "https://pokemonsweet.com"
+    }
+  },
+  {
+    "id": "pokemon_crystal_clear",
+    "name": "Pokémon Crystal Clear",
+    "image": "/images/pokemon_crystal_clear.jpeg",
+    "console": "GBC",
+    "base_game": "Crystal",
+    "language": "English",
+    "status": "Completed",
+    "difficulty": "Medium",
+    "summary": "An open-world Pokémon game where you can start in any town and challenge gyms in any order.",
+    "features": ["Open-World", "Custom Character", "Choose Starting Town"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "discord": "https://discord.gg/crystalclear"
+    }
+  },
+  {
+    "id": "pokemon_sky_twilight",
+    "name": "Pokémon Sky Twilight",
+    "image": "/images/pokemon_sky_twilight.png",
+    "console": "NDS",
+    "base_game": "SoulSilver",
+    "language": "French",
+    "status": "In Development",
+    "difficulty": "Hard",
+    "summary": "A SoulSilver hack with a darker story and enhanced difficulty.",
+    "features": ["Dark Storyline", "Increased Difficulty", "New Pokémon"],
+    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "socials": {
+      "twitter": "https://twitter.com/skytwilight"
+    }
+  }
+]
