@@ -6,16 +6,35 @@ import { FaSlidersH } from "react-icons/fa"; // Icono para el botón de filtros 
 export default function Home() {
   const [romhacks, setRomhacks] = useState([]);
   const [filteredRomhacks, setFilteredRomhacks] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(localStorage.getItem("searchQuery") || "");
-  const [selectedConsole, setSelectedConsole] = useState(localStorage.getItem("selectedConsole") || "");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedConsole, setSelectedConsole] = useState("");
   const [advancedFiltersOpen, setAdvancedFiltersOpen] = useState(false);
 
+  // Features disponibles (predefinidas)
+  const allFeatures = ["Mega Evolutions", "New Region", "Physical/Special Split", "Hard Mode"];
+
   // Filtros avanzados
-  const [selectedLanguages, setSelectedLanguages] = useState(JSON.parse(localStorage.getItem("selectedLanguages")) || []);
-  const [selectedStatus, setSelectedStatus] = useState(localStorage.getItem("selectedStatus") || "");
-  const [selectedFeatures, setSelectedFeatures] = useState(JSON.parse(localStorage.getItem("selectedFeatures")) || []);
+  const [selectedLanguages, setSelectedLanguages] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
 
   const router = useRouter();
+
+  // 🛠️ Cargar `localStorage` solo en el cliente
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setSearchQuery(localStorage.getItem("searchQuery") || "");
+      setSelectedConsole(localStorage.getItem("selectedConsole") || "");
+
+      const storedLanguages = localStorage.getItem("selectedLanguages");
+      setSelectedLanguages(storedLanguages ? JSON.parse(storedLanguages) : []);
+
+      setSelectedStatus(localStorage.getItem("selectedStatus") || "");
+
+      const storedFeatures = localStorage.getItem("selectedFeatures");
+      setSelectedFeatures(storedFeatures ? JSON.parse(storedFeatures) : []);
+    }
+  }, []);
 
   useEffect(() => {
     fetch("/data/romhacks.json")
@@ -100,71 +119,69 @@ export default function Home() {
       )}
 
       {/* Sidebar de Filtros Avanzados */}
-      {advancedFiltersOpen && (
-        <div className="fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-lg p-6 z-50 text-gray-900 dark:text-gray-100">
-          <button
-            onClick={() => setAdvancedFiltersOpen(false)}
-            className="absolute top-4 right-4 text-gray-900 dark:text-gray-100 text-xl"
-          >
-            ✖
-          </button>
-          <h2 className="text-lg font-semibold mb-4">Advanced Filters</h2>
+      <div className={`fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 shadow-lg p-6 z-50 text-gray-900 dark:text-gray-100 transition-transform duration-300 transform ${advancedFiltersOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <button
+          onClick={() => setAdvancedFiltersOpen(false)}
+          className="absolute top-4 right-4 text-gray-900 dark:text-gray-100 text-xl"
+        >
+          ✖
+        </button>
+        <h2 className="text-lg font-semibold mb-4">Advanced Filters</h2>
 
-          {/* 🌍 Idioma */}
-          <label className="block font-semibold">Language:</label>
-          <div className="flex flex-col">
-            {["English", "Spanish", "French"].map((lang) => (
-              <label key={lang} className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={selectedLanguages.includes(lang)}
-                  onChange={() => {
-                    setSelectedLanguages(prev =>
-                      prev.includes(lang) ? prev.filter(l => l !== lang) : [...prev, lang]
-                    );
-                  }}
-                />
-                {lang}
-              </label>
-            ))}
-          </div>
-
-          {/* 📌 Estado */}
-          <label className="block font-semibold mt-2">Status:</label>
-          <div className="flex flex-col">
-            {["Completed", "In Development"].map((status) => (
-              <label key={status} className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="status"
-                  checked={selectedStatus === status}
-                  onChange={() => setSelectedStatus(status)}
-                />
-                {status}
-              </label>
-            ))}
-          </div>
-
-          {/* ⭐ Features */}
-          <label className="block font-semibold mt-2">Features:</label>
-          <div className="flex flex-col">
-            {["Mega Evolutions", "New Region", "Physical/Special Split", "Hard Mode"].map((feature) => (
-              <label key={feature} className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={selectedFeatures.includes(feature)}
-                  onChange={() => {
-                    setSelectedFeatures(prev =>
-                      prev.includes(feature) ? prev.filter(f => f !== feature) : [...prev, feature]
-                    );
-                  }}
-                />
-                {feature}
-              </label>
-            ))}
-          </div>
+        {/* 🌍 Idioma */}
+        <label className="block font-semibold">Language:</label>
+        <div className="flex flex-col">
+          {["English", "Spanish", "French"].map((lang) => (
+            <label key={lang} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={selectedLanguages.includes(lang)}
+                onChange={() => {
+                  setSelectedLanguages(prev =>
+                    prev.includes(lang) ? prev.filter(l => l !== lang) : [...prev, lang]
+                  );
+                }}
+              />
+              {lang}
+            </label>
+          ))}
         </div>
-      )}
+
+        {/* 📌 Estado */}
+        <label className="block font-semibold mt-2">Status:</label>
+        <div className="flex flex-col">
+          {["Completed", "In Development"].map((status) => (
+            <label key={status} className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="status"
+                checked={selectedStatus === status}
+                onChange={() => setSelectedStatus(status)}
+              />
+              {status}
+            </label>
+          ))}
+        </div>
+
+        {/* ⭐ Features */}
+        <label className="block font-semibold mt-2">Features:</label>
+        <div className="flex flex-col">
+          {allFeatures.map((feature) => (
+            <label key={feature} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={selectedFeatures.includes(feature)}
+                onChange={() => {
+                  setSelectedFeatures(prev =>
+                    prev.includes(feature) ? prev.filter(f => f !== feature) : [...prev, feature]
+                  );
+                }}
+              />
+              {feature}
+            </label>
+          ))}
+        </div>
+      </div>
 
       {/* 📌 Lista de ROM Hacks */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
@@ -179,7 +196,8 @@ export default function Home() {
             <div className="p-4">
               <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{rom.name}</h2>
               <p className="text-sm text-gray-800 dark:text-gray-300"><strong>🎮 Console:</strong> {rom.console}</p>
-              <button 
+               {/* ✅ Botón "View Details" Restaurado */}
+               <button 
                 onClick={() => window.open(`/romhacks/${rom.id}`, "_blank")}
                 className="mt-3 w-full bg-blue-500 text-white py-2 px-4 rounded"
               >
