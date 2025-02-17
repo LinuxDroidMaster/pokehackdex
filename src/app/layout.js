@@ -15,13 +15,19 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
       document.documentElement.classList.add("dark");
       setDarkMode(true);
+    }
+
+    // Verificar si el usuario ya cerró el banner
+    const bannerClosed = localStorage.getItem("bannerClosed");
+    if (bannerClosed === "true") {
+      setShowBanner(false);
     }
   }, []);
 
@@ -36,22 +42,36 @@ export default function RootLayout({ children }) {
     setDarkMode(!darkMode);
   };
 
+  const closeBanner = () => {
+    setShowBanner(false);
+    localStorage.setItem("bannerClosed", "true");
+  };
+
   return (
     <html lang="en" className={darkMode ? "dark" : ""}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground dark:bg-gray-900 dark:text-gray-100`}>
+        {/* Banner de En Construcción */}
+        {showBanner && (
+          <div className="bg-yellow-300 dark:bg-yellow-600 text-black dark:text-white text-center p-2 fixed top-0 left-0 w-full z-50 flex justify-between items-center">
+            <span className="mx-auto font-semibold">🚧 Site under construction – No real data right now!</span>
+            <button onClick={closeBanner} className="text-black dark:text-white px-4">
+              ✖
+            </button>
+          </div>
+        )}
+
         {/* Header */}
-        <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center">
-          {/* Logo */}
+        <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center mt-10">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">PokeHackDex</h1>
 
           {/* Menú en pantallas grandes */}
           <nav className="hidden md:flex items-center gap-6">
-            <a href="/" className="text-gray-800 dark:text-gray-100 font-semibold hover:text-blue-700 dark:hover:text-blue-400">Game List</a>
-            <a href="/top" className="text-gray-900 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">Top of the Month</a>
-            <a href="/about" className="text-gray-900 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">About</a>
+            <a href="/" className="text-gray-800 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">Game List</a>
+            <a href="/top" className="text-gray-800 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">Top of the Month</a>
+            <a href="/about" className="text-gray-800 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">About</a>
           </nav>
 
-          {/* Botón de modo oscuro + Menú en móviles */}
+          {/* Botón de modo oscuro y menú en móviles */}
           <div className="flex items-center gap-4">
             <button onClick={toggleDarkMode} className="p-2 bg-gray-200 dark:bg-gray-700 rounded text-gray-800 dark:text-gray-100">
               {darkMode ? "☀️" : "🌙"}
@@ -61,15 +81,6 @@ export default function RootLayout({ children }) {
             </button>
           </div>
         </header>
-
-        {/* Menú desplegable en móviles */}
-        {menuOpen && (
-          <nav className="md:hidden bg-white dark:bg-gray-800 p-4 shadow-md flex flex-col gap-4">
-            <a href="/" className="text-gray-900 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">Game List</a>
-            <a href="/top" className="text-gray-900 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">Top of the Month</a>
-            <a href="/about" className="text-gray-900 dark:text-gray-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">About</a>
-          </nav>
-        )}
 
         <main>{children}</main>
       </body>
