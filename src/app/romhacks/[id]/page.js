@@ -122,9 +122,16 @@
             </span>
     
             {/* 📌 Descripción con Formato */}
-            <div className="prose dark:prose-invert max-w-none text-left mt-6 leading-relaxed">
+            <div className="prose max-w-none text-left mt-6 leading-relaxed 
+                text-gray-900 dark:text-gray-200 
+                prose-h1:text-gray-900 dark:prose-h1:text-white 
+                prose-h2:text-gray-900 dark:prose-h2:text-white 
+                prose-h3:text-gray-900 dark:prose-h3:text-white 
+                prose-strong:text-gray-900 dark:prose-strong:text-white">
               <div dangerouslySetInnerHTML={{ __html: romhack.description }} />
             </div>
+
+
     
             {/* 📷 Galería de imágenes */}
             {romhack.gallery?.length > 0 && (
