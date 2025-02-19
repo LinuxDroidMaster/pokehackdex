@@ -123,16 +123,16 @@
     
             {/* 📌 Descripción con Formato */}
             <div className="prose max-w-none text-left mt-6 leading-relaxed 
-                text-gray-900 dark:text-gray-200 
-                prose-h1:text-gray-900 dark:prose-h1:text-white 
-                prose-h2:text-gray-900 dark:prose-h2:text-white 
-                prose-h3:text-gray-900 dark:prose-h3:text-white 
-                prose-strong:text-gray-900 dark:prose-strong:text-white">
-              <div dangerouslySetInnerHTML={{ __html: romhack.description }} />
-            </div>
+              text-gray-900 dark:text-gray-200 
+              prose-h1:text-gray-900 dark:prose-h1:text-white 
+              prose-h2:text-gray-900 dark:prose-h2:text-white 
+              prose-h3:text-gray-900 dark:prose-h3:text-white 
+              prose-strong:text-gray-900 dark:prose-strong:text-gray-100 
+              prose-ul:list-disc prose-ul:pl-5 prose-li:mb-2">
+            <div dangerouslySetInnerHTML={{ __html: romhack.description }} />
+          </div>
 
 
-    
             {/* 📷 Galería de imágenes */}
             {romhack.gallery?.length > 0 && (
               <div className="mt-10 max-w-lg mx-auto">

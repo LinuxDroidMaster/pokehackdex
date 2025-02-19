@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class", // Habilitamos modo oscuro con clases
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,49 +9,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#FFCC00", // Amarillo Pokémon
+        secondary: "#E63946", // Rojo Pokémon
+        accent: "#457B9D", // Azul Suave
+        success: "#4CAF50", // Verde Correcto
+        dark: "#1D1D1D", // Fondo Oscuro
+        light: "#F8F8F8", // Texto en Modo Oscuro
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            h1: {
-              fontSize: "2rem",
-              fontWeight: "bold",
-              marginTop: "1.5rem",
-              color: "rgb(31 41 55)", // gris oscuro (modo claro)
-            },
-            h2: {
-              fontSize: "1.75rem",
-              fontWeight: "bold",
-              marginTop: "1.25rem",
-              color: "rgb(31 41 55)", 
-            },
-            h3: {
-              fontSize: "1.5rem",
-              fontWeight: "semibold",
-              marginTop: "1rem",
-              color: "rgb(55 65 81)", // gris medio
-            },
-            "h1, h2, h3": {
-              dark: {
-                color: "rgb(229 231 235)", // gris claro en modo oscuro
-              },
-            },
-            p: {
-              marginBottom: "1rem", // Más separación entre párrafos
-            },
-            ul: {
-              paddingLeft: "1.5rem", // Asegurar indentación de listas
-              listStyleType: "disc", // Asegurar viñetas en listas
-            },
-            li: {
-              marginBottom: "0.5rem",
-            },
-          },
-        },
+      backgroundImage: {
+        "gradient-light": "linear-gradient(135deg, #FFCC00 0%, #FFF 100%)",
+        "gradient-dark": "linear-gradient(135deg, #1D1D1D 0%, #457B9D 100%)",
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")], // 📌 Agrega el plugin de tipografía
+  plugins: [require("@tailwindcss/typography")],
 };

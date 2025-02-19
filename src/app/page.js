@@ -194,17 +194,18 @@ export default function Home() {
           <div 
             key={rom.id} 
             onClick={() => window.open(`/romhacks/${rom.id}`, "_blank")}
-            className="bg-white dark:bg-gray-800 shadow-md rounded-lg border w-full sm:w-60 cursor-pointer hover:shadow-lg transition"
+            className="bg-white dark:bg-gray-900/80 shadow-lg dark:shadow-white/20 rounded-lg w-full sm:w-56 cursor-pointer 
+                      hover:scale-105 hover:shadow-xl dark:hover:shadow-white/40 transition-transform duration-300"
           >
             <img 
               src={rom.image} 
               alt={rom.name} 
-              className="w-full h-60 object-cover rounded-t-lg"
-              style={{ aspectRatio: "1 / 1", objectFit: "cover" }} 
+              className="w-full h-48 object-cover rounded-t-lg"
             />
-            <div className="p-4">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center">{rom.name}</h2>
-              {/* Tags de características debajo del título */}
+            <div className="p-3 text-center">
+              <h2 className="text-md font-bold text-gray-900 dark:text-gray-100">{rom.name}</h2>
+
+              {/* Tags de características */}
               <div className="flex flex-wrap justify-center gap-2 mt-3">
                 <span className="bg-blue-200 dark:bg-blue-700 text-blue-900 dark:text-white text-xs px-3 py-1 rounded-full">
                   🎮 {rom.console}
