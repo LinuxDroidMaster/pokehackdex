@@ -8,7 +8,33 @@
   export default function RomhackDetails() {
     const { id } = useParams();
     const [romhack, setRomhack] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+    // Función para navegar entre imágenes
+    const handleNextImage = () => {
+      if (selectedImageIndex !== null && romhack.gallery.length > 0) {
+        setSelectedImageIndex((prevIndex) => (prevIndex + 1) % romhack.gallery.length);
+      }
+    };
+
+    const handlePrevImage = () => {
+      if (selectedImageIndex !== null && romhack.gallery.length > 0) {
+        setSelectedImageIndex((prevIndex) =>
+          prevIndex === 0 ? romhack.gallery.length - 1 : prevIndex - 1
+        );
+      }
+    };
+
+    // Cerrar con tecla ESC
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === "Escape") {
+          setSelectedImageIndex(null);
+        }
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     useEffect(() => {
       fetch("/data/romhacks.json")
@@ -105,16 +131,16 @@
               <div className="mt-10 max-w-lg mx-auto">
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 text-center mb-4">Screenshots</h2>
                 <Carousel showThumbs={false} infiniteLoop autoPlay className="rounded-lg">
-                {romhack.gallery.map((image, index) => (
-                  <div key={index} onClick={() => setSelectedImage(image)} className="cursor-pointer">
-                    <img 
-                      src={image} 
-                      alt={`Screenshot ${index + 1}`} 
-                      className="rounded-lg max-h-64 object-contain mx-auto"
-                    />
-                  </div>
-                ))}
-              </Carousel>
+                  {romhack.gallery.map((image, index) => (
+                    <div key={index} onClick={() => setSelectedImageIndex(index)} className="cursor-pointer">
+                      <img 
+                        src={image} 
+                        alt={`Screenshot ${index + 1}`} 
+                        className="rounded-lg max-h-64 object-contain mx-auto"
+                      />
+                    </div>
+                  ))}
+                </Carousel>
               </div>
             )}
           </section>
@@ -162,19 +188,42 @@
         </div>
     
         {/* 📌 Modal para ver la imagen en grande */}
-        {selectedImage && (
-          <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-            <div className="relative">
-              <button
-                className="absolute top-4 right-4 text-white text-3xl"
-                onClick={() => setSelectedImage(null)}
-              >
-                ✖
-              </button>
-              <img src={selectedImage} alt="Expanded Screenshot" className="max-w-full max-h-screen rounded-lg shadow-lg" />
-            </div>
+        {selectedImageIndex !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative flex items-center">
+            {/* Botón Anterior */}
+            <button
+              className="absolute left-2 text-white text-3xl bg-gray-900 bg-opacity-50 p-3 rounded-full"
+              onClick={handlePrevImage}
+            >
+              ❮
+            </button>
+
+            {/* Imagen Ampliada */}
+            <img
+              src={romhack.gallery[selectedImageIndex]}
+              alt="Expanded Screenshot"
+              className="max-w-full max-h-screen rounded-lg shadow-lg"
+            />
+
+            {/* Botón Siguiente */}
+            <button
+              className="absolute right-2 text-white text-3xl bg-gray-900 bg-opacity-50 p-3 rounded-full"
+              onClick={handleNextImage}
+            >
+              ❯
+            </button>
+
+            {/* Botón Cerrar */}
+            <button
+              className="absolute top-4 right-4 text-white text-3xl"
+              onClick={() => setSelectedImageIndex(null)}
+            >
+              ✖
+            </button>
           </div>
-        )}
+        </div>
+      )}
       </main>
     );    
   }
