@@ -186,7 +186,11 @@ export default function Home() {
       {/* 📌 Lista de ROM Hacks */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
         {filteredRomhacks.length > 0 ? filteredRomhacks.map((rom) => (
-          <div key={rom.id} className="bg-white dark:bg-gray-800 shadow-md rounded-lg border w-full sm:w-60">
+          <div 
+            key={rom.id} 
+            onClick={() => window.open(`/romhacks/${rom.id}`, "_blank")}
+            className="bg-white dark:bg-gray-800 shadow-md rounded-lg border w-full sm:w-60 cursor-pointer hover:shadow-lg transition"
+          >
             <img 
               src={rom.image} 
               alt={rom.name} 
@@ -194,17 +198,19 @@ export default function Home() {
               style={{ aspectRatio: "1 / 1", objectFit: "cover" }} 
             />
             <div className="p-4">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{rom.name}</h2>
-              <p className="text-sm text-gray-800 dark:text-gray-300"><strong>🎮 Console:</strong> {rom.console}</p>
-              <p className="text-sm text-gray-800 dark:text-gray-300"><strong>🌍 Language:</strong> {rom.language}</p>
-              <p className="text-sm text-gray-800 dark:text-gray-300"><strong>📌 Status:</strong> {rom.status}</p>
-               {/* ✅ Botón "View Details" Restaurado */}
-               <button 
-                onClick={() => window.open(`/romhacks/${rom.id}`, "_blank")}
-                className="mt-3 w-full bg-blue-500 text-white py-2 px-4 rounded"
-              >
-                View Details
-              </button>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center">{rom.name}</h2>
+              {/* Tags de características debajo del título */}
+              <div className="flex flex-wrap justify-center gap-2 mt-3">
+                <span className="bg-blue-200 dark:bg-blue-700 text-blue-900 dark:text-white text-xs px-3 py-1 rounded-full">
+                  🎮 {rom.console}
+                </span>
+                <span className="bg-green-200 dark:bg-green-700 text-green-900 dark:text-white text-xs px-3 py-1 rounded-full">
+                  🌍 {rom.language}
+                </span>
+                <span className="bg-yellow-200 dark:bg-yellow-700 text-yellow-900 dark:text-white text-xs px-3 py-1 rounded-full">
+                  📌 {rom.status}
+                </span>
+              </div>
             </div>
           </div>
         )) : <p className="text-center">No ROM hacks found.</p>}
