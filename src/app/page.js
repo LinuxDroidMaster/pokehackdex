@@ -196,6 +196,8 @@ export default function Home() {
             <div className="p-4">
               <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{rom.name}</h2>
               <p className="text-sm text-gray-800 dark:text-gray-300"><strong>🎮 Console:</strong> {rom.console}</p>
+              <p className="text-sm text-gray-800 dark:text-gray-300"><strong>🌍 Language:</strong> {rom.language}</p>
+              <p className="text-sm text-gray-800 dark:text-gray-300"><strong>📌 Status:</strong> {rom.status}</p>
                {/* ✅ Botón "View Details" Restaurado */}
                <button 
                 onClick={() => window.open(`/romhacks/${rom.id}`, "_blank")}

@@ -81,14 +81,42 @@
     "id": "pokemon_glazed",
     "name": "Pokémon Glazed",
     "image": "/images/pokemon_glazed.webp",
+    "gallery": [
+      "https://whackahack.com/uploads/images/c66c13e43c88dbef23afd6f5dee8a6e4.png",
+      "https://whackahack.com/uploads/images/68402a9a233c430104cb4081cd1e05a9.png",
+      "https://whackahack.com/uploads/images/152bcbbc3c210e557e96c796856cd1bc.png",
+      "https://whackahack.com/uploads/images/c8fe5cdd5a2ecfdebb9cd7d63d84fe10.png",
+      "https://whackahack.com/uploads/images/ccd2a7614bcad1977a3e8b41a3b1be5c.png",
+      "https://whackahack.com/uploads/images/ed9ff4b87d9605be10513ad223106b54.png",
+      "https://whackahack.com/uploads/images/91ae1ba40884248924561592a4156593.png",
+      "https://whackahack.com/uploads/images/10a1ac9963de55de08eb334d4c05f10b.png",
+      "https://whackahack.com/uploads/images/ae385ba11c2bc2e3e355f7bd5d4ba5dc.png",
+      "https://whackahack.com/uploads/images/6f679bf8aa8b610bd6c6cccea66ddff7.png"
+    ],
     "console": "GBA",
     "base_game": "Emerald",
     "language": "English",
     "status": "Completed",
     "difficulty": "Hard",
-    "summary": "One of the most beloved ROM hacks, featuring three regions and an expansive post-game.",
-    "features": ["Three Regions", "New Story", "Legendary Pokémon"],
-    "downloads": { "google_drive": "https://drive.google.com/..." },
+    "version": "9.1",
+    "creator": "Lucbui, TrainerX493",
+    "date_updated": "2022-05-12",
+    "description": "<p>🎉 <strong>Today’s the day you turn twelve!</strong> That means it's time to get your <strong>first Pokémon</strong> and start your journey. But if you were expecting an uneventful adventure across the <strong>Tunod region</strong>, you'd be dead wrong. ⚠️</p> <p>🌀 <strong>A mysterious power is causing the Pokémon world and the real world to collide!</strong> Strange forces lurk around the ruins of ancient Tunod, and a Scarfed Pikachu is seeking revenge. Along the way, you'll encounter three <strong>roaming trainers from Johto</strong> who will change your destiny. Do you have what it takes to stop the chaos?</p> <hr> <h2>🔄 Changes in This Version</h2> <h3>✅ Gameplay Improvements</h3> <ul> <li>🏆 <strong>Balanced difficulty curve</strong> → Gyms 1-4 are easier, post-game is more challenging.</li> <li>⚔️ <strong>Updated Pokémon stats & moves</strong> → Now match <strong>Gen 8 mechanics</strong>.</li> <li>🏅 <strong>Physical/Special Split & Move Icons</strong> → Visual clarity for all moves.</li> <li>🛡️ <strong>Fairy Type implemented</strong> → Steel no longer resists Dark/Ghost.</li> </ul> <h3>🔥 Mega Evolution Fixes</h3> <ul> <li>🔄 <strong>Mega Pokémon now learn new moves</strong> and can revert using the Mega Stone.</li> <li>⚡ <strong>Scarfed Pikachu Buff</strong> → Now stronger, can use all HMs, and has a custom sprite.</li> <li>🥋 <strong>Cameron's Dojo improved</strong> → Less grind, better level scaling.</li> </ul> <h3>🛠️ World & QoL Fixes</h3> <ul> <li>🗺️ <strong>Fixed all map errors</strong> → No more invisible walls or broken objects.</li> <li>🎁 <strong>Gift Pokémon now hold useful items</strong>, and wild Pokémon have correct held items.</li> <li>🎮 <strong>Event Pokémon (Mew, Arceus) now always obey</strong>.</li> <li>🛠️ <strong>Bug fixes & overall polish</strong> for a smoother experience.</li> </ul>",
+    "features": {
+      "Catchable Pokémon": ["399 (Gen I - IV+)"],
+      "Pokedex": ["Catch Em All (Dex Completion Possible)", "Pokémon From Other Generations"],
+      "Sprites": ["Edited Sprites", "New Sprites"],
+      "New Content": ["New Graphics", "New Items", "New Locations", "New Mechanics", "New Music", "New Region", "New Story", "Types Added", "Types From Other Generations", "Special Character Appearances"],
+      "Altered Gameplay": ["Significant Battle Changes", "PSS - Physical/Special Split", "New Battle Gimmick", "Mega Evolutions", "Additional Story"],
+      "Quality of Life": ["Bug Fixes", "Clarified Natures", "Easy IVs/EVs/DVs", "Gen V-style Repel", "Post-Game Content", "Reusable TMs", "Revised Trade Evolutions", "Running Shoes"],
+      "Gameplay & Difficulty": ["Vanilla +", "(Increased) Difficulty"],
+      "Game Scale": ["Extended Experience", "17+ Gyms", "Completeable"],
+      "Tone": ["Traditional", "Serious"],
+      "Completion Status": ["Complete", "Released", "Story Complete"]
+    },
+    "downloads": {
+      "google_drive": "https://drive.google.com/..."
+    },
     "socials": {
       "discord": "https://discord.gg/glazed",
       "website": "https://pokemonglazed.com"
