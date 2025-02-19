@@ -79,7 +79,12 @@ export default function Home() {
 
   return (
     <main className="p-6 bg-gray-100 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100">PokeHackDex</h1>
+      <h1 
+        className="text-4xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100 cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition"
+        onClick={() => router.push("/")}
+      >
+        PokeHackDex
+      </h1>
 
       {/* 🔍 Barra de Búsqueda y Filtros Principales */}
       <div className="max-w-6xl mx-auto flex flex-wrap gap-4 justify-center mb-6">

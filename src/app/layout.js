@@ -62,7 +62,12 @@ export default function RootLayout({ children }) {
 
         {/* Header */}
         <header className="p-4 bg-white dark:bg-gray-800 shadow-md flex justify-between items-center mt-10">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">PokeHackDex</h1>
+        <h1 
+          className="text-2xl font-bold text-gray-900 dark:text-gray-100 cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition"
+          onClick={() => window.location.href = "/"}
+        >
+          PokeHackDex
+        </h1>
 
           {/* Menú en pantallas grandes */}
           <nav className="hidden md:flex items-center gap-6">
